@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <title>Conference Talk</title>
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0">
+</head>
+
+<body>
+    <h1>Conference Billboard</h1>
+    <p>What do you think about this conference?</p>
+    <form hx-post="/comments" hx-target="#sent" hx-swap="innerHTML">
+        <input id="content" name="content" type="text">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="sent"></div>
+    <h2>Comments</h2>
+    <div id="comments" hx-get="/comments" hx-trigger="every 2s" hx-swap="innerHTML">
+        <img style="background-color: grey;" src="/img/tail-spin.svg" />
+    </div>
+</body>
+
+</html>
