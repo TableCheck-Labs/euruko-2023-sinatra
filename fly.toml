@@ -1,0 +1,17 @@
+# fly.toml app configuration file generated for euruko-billboard on 2023-09-21T15:32:31+03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "euruko-billboard"
+primary_region = "nrt"
+
+[build]
+
+[http_service]
+  internal_port = 4567
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]

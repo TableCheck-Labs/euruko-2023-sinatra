@@ -29,11 +29,13 @@ post '/comments' do
 
   category_scores = JSON.parse(comment_moderation_result.body)["results"].first["category_scores"]
 
-  if category_scores.values.any? { |score| score > 0.10 }
+  if category_scores.values.any? { |score| score > 0.0007 }
     puts "Comment was rejected! :("
+    puts category_scores
     "<i>Your comment was rejected! Be nicer!</i>"
   else
     puts "Comment was accepted! :)"
+    puts category_scores
     comments << comment
     "<i>Thank you for your comment!</i>"
   end
